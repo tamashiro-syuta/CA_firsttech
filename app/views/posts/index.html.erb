@@ -6,8 +6,12 @@
   <thead>
     <tr>
       <th>タスク</th>
-      <th>期日</th>
-      <th>優先度</th>
+      <th>
+        <%= link_to("期日","http://localhost:3000/posts?order_by=up_to_dat&order=asc")%>
+      </th>
+      <th>
+        <%= link_to("優先度","http://localhost:3000/posts?order_by=priority&order=asc")%>
+      </th>
       <th>タグ</th>
       <th colspan="3"></th>
     </tr>

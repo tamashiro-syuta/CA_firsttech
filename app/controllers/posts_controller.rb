@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all.order(order_params)
-    binding.irb
   end
 
   # GET /posts/1 or /posts/1.json
@@ -70,7 +69,7 @@ class PostsController < ApplicationController
 
     def order_params
       return {} if params[:order].blank? || params[:order_by].blank?
-      { params[:order] => params[:order_by] }
+      { params[:order_by] => params[:order] }
     end
 
 end
