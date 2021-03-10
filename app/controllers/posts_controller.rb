@@ -4,6 +4,13 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all.order(order_params)
+
+    @order_by = params[:order_by]
+    @order = params[:order]
+
+    @order_by="up_to_date" && @order="asc" ? @order="desc" : @order="asc"
+    @order_by="priority" && @order="asc" ? @order="desc" : @order="asc" 
+    
   end
 
   # GET /posts/1 or /posts/1.json
@@ -67,6 +74,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:content, :up_to_date, :priority, :tag)
     end
 
+    # sort機能
     def order_params
       return {} if params[:order].blank? || params[:order_by].blank?
       { params[:order_by] => params[:order] }
