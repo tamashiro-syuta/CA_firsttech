@@ -3,9 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
-# ↓↓↓↓↓↓　railsでbootstrapを使いたかったため(https://kitsune.blog/rails-bootstrap#1_Bootstrap%E3%82%92gem%E3%81%A7%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)　↓↓↓↓
-gem 'bootstrap', '~> 4.3.1'
+
+gem 'uglifier'
 gem 'jquery-rails'
+gem 'bootstrap'
 
 # ↓↓↓↓↓↓　rails sで出たエラーを直すため(https://qiita.com/Kawanji01/items/7f1ee4a1306cb43951b8)　↓↓↓↓
 gem 'mini_racer'
