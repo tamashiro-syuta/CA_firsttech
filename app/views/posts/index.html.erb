@@ -20,14 +20,12 @@
         <td><%= post.up_to_date %></td>
         <td><%= post.priority %></td>
         <td><%= post.tag %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '投稿詳細', post %></td>
+        <td><%= link_to '編集', edit_post_path(post) %></td>
+        <td><%= link_to '削除', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
