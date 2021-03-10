@@ -6,10 +6,8 @@ class PostsController < ApplicationController
     @posts = Post.all.order(order_params)
 
     @order_by = params[:order_by]
-    @order = params[:order]
-
-    @order_by="up_to_date" && @order="asc" ? @order="desc" : @order="asc"
-    @order_by="priority" && @order="asc" ? @order="desc" : @order="asc" 
+    # 昇順なら降順に、降順なら昇順に直す（三項演算子）
+    @order = params[:order] == 'asc' ? 'desc' : 'asc'
     
   end
 
