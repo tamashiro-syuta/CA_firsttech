@@ -8,7 +8,7 @@
       <th>タスク</th>
       <th>
         <%= link_to("期日", posts_path(order_by: 'up_to_date', order: @order))%>
-        <% if @order == "desc" && @order_by = "up_to_date" %>
+        <% if @order == "desc" && @order_by == "up_to_date" %>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16"><path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/></svg>
         <% else %>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16"><path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/></svg>
@@ -16,7 +16,7 @@
       </th>
       <th>
         <%= link_to("優先度", posts_path(order_by: 'priority', order: @order))%>
-        <% if @order == "desc" && @order_by = "priority" %>
+        <% if @order == "desc" && @order_by == "priority" %>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16"><path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659l4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/></svg>
         <% else %>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16"><path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/></svg>
@@ -36,7 +36,7 @@
         <td><%= post.tag %></td>
         <td><%= link_to '投稿詳細', post %></td>
         <td><%= link_to '編集', edit_post_path(post) %></td>
-        <td><%= link_to '削除', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', post, method: :delete, data: { confirm: '削除します。よろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
