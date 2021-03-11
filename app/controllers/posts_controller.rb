@@ -4,6 +4,11 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all.order(order_params)
+
+    @order_by = params[:order_by]
+    # 昇順なら降順に、降順なら昇順に直す（三項演算子）
+    @order = params[:order] == 'asc' ? 'desc' : 'asc'
+    
   end
 
   # GET /posts/1 or /posts/1.json
@@ -67,6 +72,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:content, :up_to_date, :priority, :tag)
     end
 
+    # sort機能
     def order_params
       return {} if params[:order].blank? || params[:order_by].blank?
       { params[:order_by] => params[:order] }
